@@ -1,0 +1,66 @@
+micro-servicio-productos
+------------------------
+
+en el paquete models.entity crear la entidad Producto:
+	- Long ID
+	- String descripcion
+	- double precio
+
+en el paquete persistence  crear ProductosDAO heredando de CrudRepository
+
+
+en el paquete de services
+	- crear la interface IProductoService con los metodos:
+		.   consultarTodos
+		.   buscarProducto(id)
+
+	- crear la clase ProductoServiceImpl que implementa la interface anterior.
+		.   los metodos a través del bean dao devuelve la respuesta
+
+
+en el paquete controllers
+	- crear el servicio REST  ProductoController
+		. metodo listar  ->  "/listar"
+		. metodo buscar  ->  "/buscar/id" 
+
+
+en el application.properties con figurar el puerto 8001
+
+
+
+micro-servicio-items
+--------------------
+
+en el paquete models 
+	. crear la clase Producto:
+		- Long ID
+		- String descripcion
+		- double precio
+
+	. crear la clase Item:
+		- Producto producto
+		- Integer cantidad
+
+
+en el paquete de services
+	- crear la interface ItemService con los metodos:
+		.   consultarTodos
+		.   buscarProducto(id)
+
+	- crear la clase ItemServiceImpl que implementa la interface anterior.
+		.   los metodos lanzar peticion al micro-servicio-productos con RestTemplate
+
+
+
+en el paquete controllers
+	- crear el servicio REST  ItemController
+		. metodo listar  ->  "/listar"
+		. metodo agregar  ->  "/ver/id/cantidad/cantidad" 
+
+
+
+
+
+
+
+
